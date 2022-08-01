@@ -49,7 +49,12 @@ CREATE TABLE "public.roupas" (
 
 CREATE TABLE "public.endereços" (
 	"id" serial NOT NULL,
-	"nome" TEXT NOT NULL,
+	"estado" TEXT NOT NULL,
+	"cidade" TEXT NOT NULL,
+	"CEP" varchar(8) NOT NULL,
+	"rua" TEXT NOT NULL,
+	"numero" int NOT NULL,
+	"complemento" TEXT DEFAULT 'null',
 	CONSTRAINT "endereços_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
@@ -116,6 +121,12 @@ ALTER TABLE "FotosProdutos" ADD CONSTRAINT "FotosProdutos_fk1" FOREIGN KEY ("pro
 
 ALTER TABLE "itensSelecionados" ADD CONSTRAINT "itensSelecionados_fk0" FOREIGN KEY ("compraId") REFERENCES "compras"("id");
 ALTER TABLE "itensSelecionados" ADD CONSTRAINT "itensSelecionados_fk1" FOREIGN KEY ("produtoId") REFERENCES "produtos"("id");
+
+
+
+
+
+
 
 
 
